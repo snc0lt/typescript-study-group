@@ -1,5 +1,5 @@
 // import { expect, it, test, assertType, expectTypeOf} from "vitest";
-// import { Expect, Equal} from "../../helper"
+// import { Expect, Equal} from "@/helper"
 // 1. intro to typescript generics, here we want to return the param with the correct type
 // // @ts-expect-error
 // const returnWhatIPassIn = (t) => {
