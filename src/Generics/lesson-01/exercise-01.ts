@@ -30,9 +30,9 @@
 // };
 
 // 5. Generics in classes
-// export class Component<T> {
-//   private props: T
-//   constructor(props: T) {
+// export class Component {
+//   private props: unknown
+//   constructor(props: unknown) {
 //     this.props = props;
 //   }
 
