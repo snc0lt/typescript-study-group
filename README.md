@@ -1,8 +1,13 @@
-### TYPESCRIPT STUDY GROUP
-#### ```clone repo and npm i to install dependencies```
-#### STAR LEARNING
+# TYPESCRIPT STUDY GROUP - PGD
 
-### TOPICS
-- GENERICS
-- TYPE TRANSFOMATION
-- TS PATTERNS
+## How to run
+- Clone repo.
+- `npm i` to install dependencies
+- Start learning
+
+## Topics
+- Introduction to TypeScript
+- Generics
+- Type Transformation
+- Typescript Patterns
+- - Type Assertions using generics
