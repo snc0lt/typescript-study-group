@@ -10,4 +10,3 @@
 - Generics
 - Type Transformation
 - Typescript Patterns
-- Type Assertions using generics
