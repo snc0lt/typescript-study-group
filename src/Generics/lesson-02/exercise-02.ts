@@ -1,7 +1,9 @@
-import { Equal, Expect } from "../../helper";
+import { Equal, Expect } from "../../../helper";
 import { expect, it, test} from "vitest";
 
-// // 1. apply the knoowledge to type this correctly
+/*1. apply the knoowledge from lesson 01 to type this funciton correctly,
+	notice the test is also asking us to type it as Set<unknown> when no generic is passed to the function. 
+*/
 // export const createOwnSet = () => {
 //   return new Set();
 // };
@@ -16,7 +18,9 @@ import { expect, it, test} from "vitest";
 //   Expect<Equal<typeof unknownSet, Set<unknown>>>,
 // ];
 
-// // 2 same as above but now we want a default type string if nothing is passed
+/*2. 2 same as above but now we want a default type string if nothing is passed,
+	notice the test is also asking us to type it as Set<string> when no generic is passed to the function. 
+*/
 // export const createOwnSet = () => {
 //   return new Set();
 // };
@@ -31,7 +35,7 @@ import { expect, it, test} from "vitest";
 //   Expect<Equal<typeof defaultString, Set<string>>>,
 // ];
 
-// // 3. infer props
+// // 3. infer props on clonedComponent :?
 // export class Component<TProps> {
 //   private props: TProps;
 
@@ -60,7 +64,7 @@ import { expect, it, test} from "vitest";
 //   ];
 // });
 
-// // 4. correctly type a reduce
+// // 4. correctly type a reduce using generics
 // const array = [
 //   {
 //     name: "John",
@@ -88,7 +92,7 @@ import { expect, it, test} from "vitest";
 //   type tests = [Expect<Equal<typeof obj, Record<string, { name: string }>>>];
 // });
 
-// // 5. avoid any in fetch calls using generics
+// // 5. avoid an any return type in a fetch calls using generics
 // const fetchData = async (url: string) => {
 //   const data = await fetch(url).then((response) => response.json());
 //   return data;
@@ -103,7 +107,7 @@ import { expect, it, test} from "vitest";
 //   type tests = [Expect<Equal<typeof data, { name: string }>>];
 // });
 
-// 6. think on what level should the generic live?
+// 6. a bit more complex (still manageable), at what level should the generic live? (hint: think low)
 // export const getHomePageFeatureFlags = (
 //   config: unknown,
 //   override: (flags: unknown) => unknown
@@ -160,9 +164,9 @@ import { expect, it, test} from "vitest";
 //   });
 // });
 
-// 7. Object.heys
-// const typedObjectKeys = <T extends object>(obj: T) => {
-//   return Object.keys(obj) as Array<keyof T>;
+// 7. Object.keys correct typing
+// const typedObjectKeys = (obj: unknown) => {
+//   return Object.keys(obj);
 // };
 
 // it("Should return the keys of the object", () => {
@@ -176,26 +180,11 @@ import { expect, it, test} from "vitest";
 //   type test = Expect<Equal<typeof result1, Array<"a" | "b">>>;
 // });
 
-// 8. typescript compiler inference
-// const returnWhatIPassIn = <T>(t: T) => {
-//   return t;
-// };
-// const result1 = returnWhatIPassIn(1)
-
-// const returnWhatIPassIn2 = <T>(t: T) => {
-//   return {t};
-// };
-// const result2 = returnWhatIPassIn2(1)
-
-// const returnWhatIPassIn3 = <T extends number>(t: T) => {
-//   return {t};
-// };
-// const result3 = returnWhatIPassIn3(1)
-
-// 9. more inference
-// export const inferItemLiteral = <T>(t: T) => {
+// 9. don't tell me you forgot it already? TS inference (look for what the test 'line 193' is expecting) and type the fuinction correctly using generics
+// if we remove @ts-expect-error from line 199 and 204 it should give an error if the solucion is correct
+// export const inferItemLiteral = (t: unknown) => {
 //   return {
-//     output: t,
+//     output: t ,
 //   };
 // };
 
@@ -215,8 +204,9 @@ import { expect, it, test} from "vitest";
 // // @ts-expect-error
 // const error2 = inferItemLiteral([1, 2]);
 
-// 10. even more inference
-// const makeStatus = <TStatuses extends string[]>(statuses: TStatuses) => {
+// 10. even more inference, you won't forget it...
+// Whoever manages to solve this, I'm gonna buy them a beer... uwu
+// const makeStatus = (statuses) => {
 //   return statuses;
 // };
 
@@ -226,8 +216,8 @@ import { expect, it, test} from "vitest";
 //   Expect<Equal<typeof statuses, Array<"INFO" | "DEBUG" | "ERROR" | "WARNING">>>,
 // ];
 
-// 11. more??
-
+// 11. more inference??
+// FOR REAL, Whoever manages to solve this, I'm gonna buy them a beer...
 // const createClassNamesFactory =
 //   (classes: unknown) =>
 //   (type: unknown, ...otherClasses: unknown[]) => {
