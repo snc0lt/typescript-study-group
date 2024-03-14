@@ -56,33 +56,13 @@ it("Should fetch data from an API", async () => {
 });
 // -------------------------Exercise 6--------------------------------------------
 
-export const getHomePageFeatureFlags = <Flag>(config: { rawConfig: { featureFlags: { homePage: Flag } } }, override: (flags: Flag) => Flag) => {
-  return override(config.rawConfig.featureFlags.homePage);
-};
-
-// Uso de la función con tipos específicos
-interface Config {
- rawConfig: {
-    featureFlags: {
-      homePage: {
-        darkMode: boolean;
-      }
-    }
- }
-}
-
-const config: Config = {
+const config = {
   rawConfig: {
     featureFlags: {
-      homePage: { darkMode: true }
-    }
-  }
+      homePage: { darkMode: true },
+    },
+  },
 };
-
-const newFlags = getHomePageFeatureFlags(config, (flags) => {
-  const updatedFlags = { ...flags, newFeature: true };
-  return updatedFlags;
-});
 
 // -------------------------Exercise 7--------------------------------------------
 // -------------------------Exercise 8--------------------------------------------
