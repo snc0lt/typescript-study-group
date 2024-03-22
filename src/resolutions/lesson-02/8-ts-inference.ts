@@ -5,9 +5,7 @@ import { Equal, Expect } from "../../../helper";
 if we remove @ts-expect-error from line 199 and 204 it should give an error if the solucion is correct
 */
 
-type AllowedType<T> = T extends string | number ? T : never;
-
-export const inferItemLiteral = <T>(t: AllowedType<T>)  => {
+export const inferItemLiteral = <T extends string | number>(t: T)  => {
   return {
     output: t ,
   };
@@ -25,7 +23,7 @@ type tests = [
  Effectively, brings error when //@ts-expect-error is removed.
 */
 
-// // @ts-expect-error
+// @ts-expect-error
 // const error1 = inferItemLiteral({
 //   a: 1,
 // });
@@ -34,7 +32,7 @@ const error1 = inferItemLiteral({
   a: 1,
 });
 
-// // @ts-expect-error
+// @ts-expect-error
 // const error2 = inferItemLiteral([1, 2]);
 
 const error2 = inferItemLiteral([1, 2]);

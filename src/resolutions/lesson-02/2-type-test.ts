@@ -1,18 +1,18 @@
 import { Equal, Expect } from "../../../helper";
+
 /*2. 
-    same as above but now we want a default type string if nothing is passed,
-	notice the test is also asking us to type it as Set<string> when no generic is passed 
-    to the function. 
+  Igual que antes, pero ahora queremos un tipo predeterminado string si no se pasa nada,
+	nota que el test también nos pide tiparlo como Set<string> cuando no se pasa ningún genérico a la función. 
 */
 
 type SetType = string | number;
 
-export const createOwnSet = <T extends SetType = string>(t: Iterable<T> = []) => {
-  return new Set(t);
+export const createOwnSet = <T extends SetType = string>() => {
+  return new Set<T>();
 };
 
-const stringSet = createOwnSet<string>(["set"]);
-const numberSet = createOwnSet<number>([1]);
+const stringSet = createOwnSet<string>();
+const numberSet = createOwnSet<number>();
 const defaultString = createOwnSet();
 
 type tests = [

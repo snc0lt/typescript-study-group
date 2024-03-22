@@ -1,14 +1,7 @@
 import { Equal, Expect } from "../../../helper";
 import { expect, it} from "vitest";
+
 // 3. infer props on clonedComponent :?
-
-type TProps = {
-    a: number;
-    b: number;
-    c: number;
-}
-
-
 export class Component<TProps> {
   private props: TProps;
 
@@ -19,7 +12,7 @@ export class Component<TProps> {
   getProps = () => this.props;
 }
 
-const cloneComponent = (component: Component<TProps>) => {
+const cloneComponent = <TProps>(component: Component<TProps>) => {
   return new Component(component.getProps());
 };
 

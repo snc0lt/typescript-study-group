@@ -5,14 +5,13 @@ import { Equal, Expect } from "../../../helper";
     to the function. 
 */
 
-type SetType = string | number | unknown;
 
-export const createOwnSet = <T extends SetType = unknown>(t: Iterable<T> = []) => {
-  return new Set(t);
+export const createOwnSet = <T>(...elements: T[]): Set<T> => {
+  return new Set(elements);
 };
 
-const stringSet = createOwnSet<string>(["set"]);
-const numberSet = createOwnSet<number>([1]);
+const stringSet = createOwnSet<string>("set");
+const numberSet = createOwnSet<number>(1);
 const unknownSet = createOwnSet();
 
 type tests = [

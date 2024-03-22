@@ -3,7 +3,7 @@ import { expect, it } from "vitest";
 
 // 7. Object.keys correct typing
 
-const typedObjectKeys = <T extends string>(obj: Record<T, number>) => {
+const typedObjectKeys = <T extends string>(obj: Record<T, any>) => {
   return Object.keys(obj) as T[];
 };
 
