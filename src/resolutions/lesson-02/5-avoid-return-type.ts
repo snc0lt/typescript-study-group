@@ -5,8 +5,8 @@ import { expect, it} from "vitest";
 
 type DataType = { name: string };
 
-const fetchData = async <T>(url: string): Promise<DataType> => {
-  const data = await fetch(url).then((response) => response.json());
+const fetchData = async <T>(url: string) => {
+  const data = await fetch(url).then((response) => response.json()) as T;
   return data;
 };
 
